@@ -1,0 +1,20 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+packages:
+  - git
+  - curl
+  - htop
+  - vim
+  - python3
+  - python3-pip
+  - docker.io
+  - curl
+
+runcmd:
+  - echo "Servidor configurado com sucesso!"
+  - systemctl enable docker
+  - systemctl start docker
+  - usermod -aG docker ubuntu
+
+final_message: "Configuração do servidor concluída com sucesso!"
